@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(
                    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--save_dir', type=str, default='save',
                     help='model directory to store checkpointed models')
-parser.add_argument('-n', type=int, default=500,
+parser.add_argument('-n', type=int, default=800,
                     help='number of characters to sample')
 parser.add_argument('--prime', type=text_type, default=u'',
                     help='prime text')

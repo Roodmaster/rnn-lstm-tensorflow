@@ -11,7 +11,7 @@ from six.moves import cPickle
 parser = argparse.ArgumentParser(
                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 # Data and model checkpoints directories
-parser.add_argument('--data_dir', type=str, default='data/tinyshakespeare',
+parser.add_argument('--data_dir', type=str, default='data/novels',
                     help='data directory containing input.txt with training examples')
 parser.add_argument('--save_dir', type=str, default='save',
                     help='directory to store checkpointed models')
@@ -32,18 +32,18 @@ parser.add_argument('--init_from', type=str, default=None,
 # Model params
 parser.add_argument('--model', type=str, default='lstm',
                     help='lstm, rnn, gru, or nas')
-parser.add_argument('--rnn_size', type=int, default=128,
+parser.add_argument('--rnn_size', type=int, default=256,
                     help='size of RNN hidden state')
-parser.add_argument('--num_layers', type=int, default=2,
+parser.add_argument('--num_layers', type=int, default=3,
                     help='number of layers in the RNN')
 # Optimization
-parser.add_argument('--seq_length', type=int, default=50,
+parser.add_argument('--seq_length', type=int, default=80,
                     help='RNN sequence length. Number of timesteps to unroll for.')
-parser.add_argument('--batch_size', type=int, default=50,
+parser.add_argument('--batch_size', type=int, default=500,
                     help="""minibatch size. Number of sequences propagated through the network in parallel.
                             Pick batch-sizes to fully leverage the GPU (e.g. until the memory is filled up)
                             commonly in the range 10-500.""")
-parser.add_argument('--num_epochs', type=int, default=50,
+parser.add_argument('--num_epochs', type=int, default=1000,
                     help='number of epochs. Number of full passes through the training examples.')
 parser.add_argument('--grad_clip', type=float, default=5.,
                     help='clip gradients at this value')
